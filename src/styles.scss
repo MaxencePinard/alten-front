@@ -40,7 +40,7 @@ $fontFamilyQuicksand: Quicksand, Helvetica Neue Light,Helvetica Neue,Helvetica,A
   --primary-nav-color: #2c343b;
   --secondary-nav-color: #232a2f;
   --text-nav-color: #c3c3c3;
-  
+
   --login-bg-color: 255, 255, 255;
 }
 
@@ -70,6 +70,22 @@ body {
     font-family: $fontFamilyQuicksand;
   }
 
+  .p-rating {
+    display: flex;
+    justify-content: center;
+  }
+  .p-readonly .p-rating-icon {
+    cursor: default;
+  }
+
+  .p-datatable {
+    margin: 0;
+  }
+
+  .p-tag {
+    text-align: center;
+  }
+
   .transparent {
     app-navbar,
     app-footer {
@@ -87,7 +103,7 @@ body {
       }
     }
   }
- 
+
   .green {
     color: var(--green-500);
   }
@@ -193,6 +209,10 @@ app-navbar {
       .app-frame,
       .app-header {
         margin-left: 260px;
+      }
+      .app-page-container {
+        margin-left: 260px;
+        width: calc(100% - 260px);
       }
     }
   }
@@ -350,7 +370,7 @@ app-navbar {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    
+
     .p-field,
     .file-upload-container {
       text-align: left;
@@ -372,7 +392,7 @@ app-navbar {
       }
     }
 }
-    
+
 .copy-input {
   :disabled {
     opacity: unset;
@@ -430,3 +450,6 @@ app-footer {
     left: 0 !important;
   }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

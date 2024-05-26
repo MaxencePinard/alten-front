@@ -1,0 +1,49 @@
+<div class="products">
+  <div class="top-bar">
+    <div class="left">
+      <select name="sort" id="sort-select" [ngModel]="sortValue" (ngModelChange)="onSort($event)" #sortInput>
+        <option value="" i18n="@@sortBy">Sort By</option>
+        <option value="name">Name</option>
+        <option value="category">Category</option>
+        <option value="price">Price</option>
+        <option value="stock">In Stock</option>
+        <option value="rating">Rating</option>
+      </select>
+      <div class="searchBar">
+        <div class="searchButton">
+          <i class="pi pi-search"></i>
+        </div>
+        <input type="search" id="product-search" name="search" class="search" i18n-placeholder="@@search" placeholder="Search" [ngModel]="searchValue" (ngModelChange)="onSearch($event)"/>
+      </div>
+    </div>
+    <div class="right">
+      <div class="changeView" [class.gridView]="productsService.getListView()" (click)="productsService.toggleListView()">
+        <i class="pi pi-bars"></i>
+      </div>
+      <div class="changeView" [class.gridView]="productsService.getGridView()" (click)="productsService.toggleGridView()">
+        <i class="pi pi-th-large"></i>
+      </div>
+    </div>
+  </div>
+  <div class="container" *ngIf="productsService.getGridView()">
+    <app-product-item *ngFor="let product of products" [product]="product"></app-product-item>
+  </div>
+  <p-table [value]="products" *ngIf="productsService.getListView()" [paginator]="true" [rows]="15" [rowsPerPageOptions]="[5, 10, 15, 20]">
+    <ng-template pTemplate="header">
+      <tr>
+        <th *ngFor="let col of columns" [ngClass]="col.field">{{col.header}}</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td class="lineBreak">{{product.name}}</td>
+        <td class="lineBreak">{{product.description}}</td>
+        <td class="centered">{{product.category}}</td>
+        <td class="centered">{{product.price | currency:'EUR':'symbol'}}</td>
+        <td class="centered"><p-tag [value]="product.stock" [severity]="productsService.getStockSeverity(product.stock)"></p-tag></td>
+        <td class="centered"><p-rating [(ngModel)]="product.rating" [readonly]="true" [cancel]="false"></p-rating></td>
+        <td class="centered"><div class="addToCartButton"><i class="pi pi-shopping-cart"></i></div></td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

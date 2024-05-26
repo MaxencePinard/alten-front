@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, LOCALE_ID, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { SidenavItem } from 'app/base/sidenav/sidenav.model';
 import { SidenavService } from 'app/base/sidenav/sidenav.service';
@@ -21,11 +21,13 @@ export class SidenavComponent implements OnInit {
   constructor(
     public readonly sidenavService: SidenavService,
     private readonly router: Router,
+    @Inject(LOCALE_ID) public locale: string
   ) {
+    this.lang = locale;
   }
 
   ngOnInit(): void {
-    
+
   }
 
   public onMouseover(hovering: boolean): void {

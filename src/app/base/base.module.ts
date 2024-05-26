@@ -7,6 +7,11 @@ import { CommonModule } from '@angular/common';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { ThemeToggleButtonComponent } from 'app/base/theme-toggle-button/theme-toggle-button.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { ProductsComponent } from './pages/products/products.component';
+import { PublicProductItemComponent } from './pages/products/product-item.component';
+import { AdminComponent } from 'app/base/pages/admin/admin.component';
+import { TableModule } from 'primeng/table';
+import { TagModule } from 'primeng/tag';
 
 @NgModule({
   declarations: [
@@ -14,12 +19,17 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     FooterComponent,
     SidenavComponent,
     ThemeToggleButtonComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    ProductsComponent,
+    PublicProductItemComponent,
+    AdminComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TableModule,
+    TagModule
   ],
   exports: [NavbarComponent, FooterComponent, SidenavComponent, BreadcrumbComponent]
 })

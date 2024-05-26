@@ -118,10 +118,8 @@
         <note priority="1" from="description">Go to dashboard</note>
       </trans-unit>
       <trans-unit id="welcomeAddress" datatype="html">
-        <source>
-    Welcome to Dashboard!
-  </source>
-  <target>Bienvenue dans Dashboard!</target>
+        <source>Welcome to Dashboard!</source>
+        <target>Bienvenue dans Dashboard!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/dashboard/dashboard.component.html</context>
           <context context-type="linenumber">2</context>
@@ -145,6 +143,34 @@
           <context context-type="linenumber">21</context>
         </context-group>
         <note priority="1" from="description">Login route text</note>
+      </trans-unit>
+      <trans-unit id="error404" datatype="html">
+        <source>404 Error</source>
+        <target>Erreur 404</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/base/pages/pagenotfound/pagenotfound.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pageNotFound" datatype="html">
+        <source>Page Not Found</source>
+        <target>Page Non Trouvée</target>
+      </trans-unit>
+      <trans-unit id="sortBy" datatype="html">
+        <source>Sort By</source>
+        <target>Trier Par</target>
+      </trans-unit>
+      <trans-unit id="search" datatype="html">
+        <source>Search</source>
+        <target>Rechercher</target>
+      </trans-unit>
+      <trans-unit id="new" datatype="html">
+        <source>New</source>
+        <target>Nouveau</target>
+      </trans-unit>
+      <trans-unit id="delete" datatype="html">
+        <source>Delete</source>
+        <target>Supprimer</target>
       </trans-unit>
     </body>
   </file>

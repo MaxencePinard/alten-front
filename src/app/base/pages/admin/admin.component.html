@@ -1,0 +1,101 @@
+<div class="admin">
+  <div class="top-bar">
+    <div class="left">
+      <div class="button newButton">
+        <div class="icon">
+          <i class="pi pi-plus"></i>
+        </div>
+        <p i18n="@@new">New</p>
+      </div>
+      <div class="button" [class.deleteButtonEnabled]="adminService.getDeleteButtonEnabled()" [class.deleteButtonDisabled]="!adminService.getDeleteButtonEnabled()">
+        <div class="icon">
+          <i class="pi pi-trash"></i>
+        </div>
+        <p i18n="@@delete">Delete</p>
+      </div>
+    </div>
+    <div class="right">
+      <i class="pi pi-cog"></i>
+    </div>
+  </div>
+  <p-table [value]="products"
+    [(selection)]="selectedProducts"
+    [paginator]="true"
+    [rows]="15"
+    [rowsPerPageOptions]="[5, 10, 15, 20]"
+    selectionMode="multiple"
+    (onRowSelect)="onCheck()"
+    (onRowUnselect)="onCheck()">
+    <ng-template pTemplate="header">
+      <tr>
+        <th *ngFor="let col of columns" [ngClass]="col.field" pSortableColumn="{{col.field}}">
+          {{col.header}}
+          <p-tableHeaderCheckbox *ngIf="col.field === 'checkbox'" (click)="onCheck()"></p-tableHeaderCheckbox>
+          <p-sortIcon *ngIf="col.sortable" field="{{col.field}}"></p-sortIcon>
+        </th>
+      </tr>
+      <tr>
+        <th *ngFor="let col of columns">
+          <p-columnFilter type="text" field="name" ariaLabel="Filter Name" *ngIf="col.searchable"></p-columnFilter>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product let-ri="rowIndex" let-editing="editing">
+      <tr [pEditableRow]="product">
+        <td class="centered" [class.hidden]="getHidden(0)"><p-tableCheckbox [value]="product"></p-tableCheckbox></td>
+        <td [class.hidden]="getHidden(1)">{{product.code}}</td>
+        <td class="lineBreak" [class.hidden]="getHidden(2)">
+          <p-cellEditor>
+              <ng-template pTemplate="input">
+                  <input
+                      pInputText type="text"
+                      [(ngModel)]="product.name" />
+              </ng-template>
+              <ng-template pTemplate="output">
+                  {{product.name}}
+              </ng-template>
+          </p-cellEditor>
+        </td>
+        <td class="lineBreak" [class.hidden]="getHidden(3)">{{product.description}}</td>
+        <td class="centered" [class.hidden]="getHidden(4)">{{product.category}}</td>
+        <td class="centered" [class.hidden]="getHidden(5)">{{product.price | currency:'EUR':'symbol'}}</td>
+        <td class="centered" [class.hidden]="getHidden(6)"><p-tag [value]="product.stock" [severity]="productsService.getStockSeverity(product.stock)"></p-tag></td>
+        <td class="centered" [class.hidden]="getHidden(7)"><p-rating [(ngModel)]="product.rating" [readonly]="true" [cancel]="false"></p-rating></td>
+        <td [class.hidden]="getHidden(8)">
+          <div  class="actionButtons">
+            <button
+                *ngIf="!editing"
+                pButton
+                pRipple
+                type="button"
+                pInitEditableRow
+                icon="pi pi-pencil"
+                (click)="onRowEditInit(product)"
+                class="p-button-rounded p-button-text">
+            </button>
+            <button
+                *ngIf="editing"
+                pButton
+                pRipple
+                type="button"
+                pSaveEditableRow
+                icon="pi pi-check"
+                (click)="onRowEditSave(product)"
+                class="p-button-rounded p-button-text p-button-success mr-2">
+            </button>
+            <button
+                *ngIf="editing"
+                pButton pRipple
+                type="button"
+                pCancelEditableRow
+                icon="pi pi-times"
+                (click)="onRowEditCancel(product, ri)"
+                class="p-button-rounded p-button-text p-button-danger">
+            </button>
+            <i class="pi pi-trash"></i>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

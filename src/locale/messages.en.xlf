@@ -11,7 +11,7 @@
         </context-group>
         <note priority="1" from="description">Login Form</note>
       </trans-unit>
-       <trans-unit id="emailPlaceholder" datatype="html">
+      <trans-unit id="emailPlaceholder" datatype="html">
         <source>Email</source>
         <target>Email</target>
         <context-group purpose="location">
@@ -68,7 +68,7 @@
         </context-group>
         <note priority="1" from="description">Go to login second step</note>
       </trans-unit>
-       <trans-unit id="passwordPlaceholder" datatype="html">
+      <trans-unit id="passwordPlaceholder" datatype="html">
         <source>Password</source>
         <target>Password</target>
         <context-group purpose="location">
@@ -122,10 +122,8 @@
         <note priority="1" from="description">Go to dashboard</note>
       </trans-unit>
       <trans-unit id="welcomeAddress" datatype="html">
-        <source>
-    Welcome to Dashboard!
-  </source>
-      <target>Welcome to Dashboard !</target>
+        <source>Welcome to Dashboard!</source>
+        <target>Welcome to Dashboard !</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/dashboard/dashboard.component.html</context>
           <context context-type="linenumber">2</context>
@@ -149,6 +147,34 @@
           <context context-type="linenumber">21</context>
         </context-group>
         <note priority="1" from="description">Login route text</note>
+      </trans-unit>
+      <trans-unit id="error404" datatype="html">
+        <source>404 Error</source>
+        <target>404 Error</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/base/pages/pagenotfound/pagenotfound.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pageNotFound" datatype="html">
+        <source>Page Not Found</source>
+        <target>Page Not Found</target>
+      </trans-unit>
+      <trans-unit id="sortBy" datatype="html">
+        <source>Sort By</source>
+        <target>Sort By</target>
+      </trans-unit>
+      <trans-unit id="search" datatype="html">
+        <source>Search</source>
+        <target>Search</target>
+      </trans-unit>
+      <trans-unit id="new" datatype="html">
+        <source>New</source>
+        <target>New</target>
+      </trans-unit>
+      <trans-unit id="delete" datatype="html">
+        <source>Delete</source>
+        <target>Delete</target>
       </trans-unit>
     </body>
   </file>

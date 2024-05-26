@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, LOCALE_ID, Inject } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { SidenavItem } from 'app/base/sidenav/sidenav.model';
 import { SidenavService } from 'app/base/sidenav/sidenav.service';
@@ -21,12 +21,13 @@ export class BreadcrumbComponent implements OnInit {
   constructor(
     private readonly sidenavService: SidenavService,
     private readonly router: Router,
+    @Inject(LOCALE_ID) public locale: string
   ) {
-
+    this.lang = locale;
   }
 
   ngOnInit(): void {
-    this.router.events.pipe(      
+    this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
       map((event: NavigationEnd) => event.url),
       startWith(this.router.url),

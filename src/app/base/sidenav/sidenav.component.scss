@@ -14,7 +14,7 @@
   .pinned-icon {
     position: absolute;
     z-index: 4;
-    top: 26px;
+    top: 22px;
     right: 10px;
     cursor: pointer;
     color: white;
@@ -33,11 +33,15 @@
     background-color: var(--primary-nav-color);
     height: 60px;
     line-height: 60px;
-    position: relative;    
+    position: relative;
     white-space: nowrap;
     overflow: hidden;
     display: flex;
     align-items: center;
+
+    .title {
+      display: flex;
+    }
 
     span {
       &.first {
@@ -85,16 +89,18 @@
       }
 
       .li-container {
+        display: flex;
+        align-items: center;
         text-align: center;
         min-height: 30px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        
+
         .menu-icon {
           font-size: 1.2rem;
         }
-  
+
         .chevron {
           position: absolute;
           right: 20px;
@@ -104,7 +110,7 @@
     }
   }
 
-  
+
   &.expanded {
     width: 260px;
 
@@ -129,5 +135,5 @@
       }
     }
   }
-  
+
 }
