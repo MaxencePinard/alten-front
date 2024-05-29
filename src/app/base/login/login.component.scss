@@ -1,0 +1,41 @@
+.user-button {
+  margin: 0 5px;
+  display: flex;
+  align-items: center;
+
+  img, button {
+    margin-left: 5px;
+  }
+}
+
+.loginDialog {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  .loginField {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .dialogButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    .loginButton {
+      display: flex;
+      border-radius: 5px;
+      overflow: hidden;
+      cursor: pointer;
+      height: 40px;
+      padding: 0 20px 0 20px;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--primary-color);
+      color: white;
+    }
+  }
+}

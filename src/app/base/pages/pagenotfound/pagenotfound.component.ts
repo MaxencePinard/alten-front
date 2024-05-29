@@ -6,8 +6,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class PagenotfoundComponent implements OnInit {
 
-  public Object = Object;
-
   constructor() {
   }
 

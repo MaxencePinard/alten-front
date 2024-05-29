@@ -7,8 +7,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  public Object = Object;
-
   constructor() {
   }
 

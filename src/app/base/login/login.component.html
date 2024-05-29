@@ -1,0 +1,21 @@
+<div class="user-button">
+  <span *ngIf="isAuthenticated">{{userName}}</span>
+  <button pButton icon="pi pi-user" type="button" class="p-button-rounded p-button-outlined" (click)="onShowLoginDialog()"></button>
+</div>
+<p-dialog i18n-header="@@logInForm" header="Log in" [modal]="true" [(visible)]="showLoginDialog" [style]="{ width: '25rem' }">
+  <div class="loginDialog">
+    <div class="loginField">
+        <label for="email" i18n="@@emailPlaceholder">Email</label>
+        <input pInputText id="email" autocomplete="off" />
+    </div>
+    <div class="loginField">
+        <label for="password" i18n="@@passwordPlaceholder">Password</label>
+        <i class="pi pi-eye-slash" *ngIf="!showPassword" (click)="onShowPassword()"></i>
+        <i class="pi pi-eye" *ngIf="showPassword" (click)="onShowPassword()"></i>
+        <input pInputText id="password" [type]="showPassword ? 'text' : 'password'" autocomplete="off" />
+    </div>
+    <div class="dialogButtons">
+      <div class="loginButton" (click)="onLogin()" i18n="@@logInForm">Log in</div>
+    </div>
+  </div>
+</p-dialog>

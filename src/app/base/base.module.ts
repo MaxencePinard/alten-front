@@ -12,6 +12,8 @@ import { PublicProductItemComponent } from './pages/products/product-item.compon
 import { AdminComponent } from 'app/base/pages/admin/admin.component';
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
+import { DialogModule } from 'primeng/dialog';
+import { LoginComponent } from 'app/base/login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +24,16 @@ import { TagModule } from 'primeng/tag';
     BreadcrumbComponent,
     ProductsComponent,
     PublicProductItemComponent,
-    AdminComponent
+    AdminComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     ReactiveFormsModule,
     TableModule,
-    TagModule
+    TagModule,
+    DialogModule
   ],
   exports: [NavbarComponent, FooterComponent, SidenavComponent, BreadcrumbComponent]
 })

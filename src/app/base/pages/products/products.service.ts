@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 import { PublicProductItem } from 'app/base/pages/products/products.model';
-import * as _ from 'lodash'
+import * as _ from 'lodash';
 
 @Injectable({
     providedIn: 'root'

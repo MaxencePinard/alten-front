@@ -2,6 +2,7 @@ import { Component, HostBinding, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { SidenavService } from 'app/base/sidenav/sidenav.service';
+import { environment } from '../environments/environment';
 
 const TRANSPARENT_NAV_PAGES = [ 'login' ];
 
@@ -18,7 +19,7 @@ export class AppComponent implements OnInit {
     private readonly router: Router,
     private readonly sidenavService: SidenavService
   ) {
-   
+    environment.lang = $localize.locale.split('-')[0];
   }
 
   get getExpanded(): boolean {
@@ -29,6 +30,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
   }
 }

@@ -176,6 +176,58 @@
         <source>Delete</source>
         <target>Delete</target>
       </trans-unit>
+      <trans-unit id="deleteDialogMessage" datatype="html">
+        <source>Are you sure you want to delete this product ?</source>
+        <target>Are you sure you want to delete this product ?</target>
+      </trans-unit>
+      <trans-unit id="deleteSelectedDialogMessage" datatype="html">
+        <source>Are you sure you want to delete these products ?</source>
+        <target>Are you sure you want to delete these products ?</target>
+      </trans-unit>
+      <trans-unit id="yes" datatype="html">
+        <source>Yes</source>
+        <target>Yes</target>
+      </trans-unit>
+      <trans-unit id="no" datatype="html">
+        <source>No</source>
+        <target>No</target>
+      </trans-unit>
+      <trans-unit id="modifyProduct" datatype="html">
+        <source>Modify product</source>
+        <target>Modify product</target>
+      </trans-unit>
+      <trans-unit id="code" datatype="html">
+        <source>Code</source>
+        <target>Code</target>
+      </trans-unit>
+      <trans-unit id="name" datatype="html">
+        <source>Name</source>
+        <target>Name</target>
+      </trans-unit>
+      <trans-unit id="description" datatype="html">
+        <source>Description</source>
+        <target>Description</target>
+      </trans-unit>
+      <trans-unit id="category" datatype="html">
+        <source>Category</source>
+        <target>Category</target>
+      </trans-unit>
+      <trans-unit id="price" datatype="html">
+        <source>Price</source>
+        <target>Price</target>
+      </trans-unit>
+      <trans-unit id="inStock" datatype="html">
+        <source>In Stock</source>
+        <target>In Stock</target>
+      </trans-unit>
+      <trans-unit id="rating" datatype="html">
+        <source>Rating</source>
+        <target>Rating</target>
+      </trans-unit>
+      <trans-unit id="actions" datatype="html">
+        <source>Actions</source>
+        <target>Actions</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

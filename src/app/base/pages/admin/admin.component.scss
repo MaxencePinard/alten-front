@@ -71,6 +71,7 @@
       }
       .deleteButtonDisabled {
         background-color: var(--secondary-bg-color);
+        cursor: default;
         .pi {
           color: var(--primary-font-color);
         }
@@ -160,5 +161,84 @@
 
   .hidden {
     display: none;
+  }
+  .dialogMessage {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  .dialogButtons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+
+    .dialogButton {
+      display: flex;
+      border-radius: 5px;
+      overflow: hidden;
+      cursor: pointer;
+      height: 40px;
+      width: 50px;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--primary-color);
+      color: white;
+    }
+  }
+  .modifyProductDialog {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 50vw;
+    z-index: 1100;
+
+    .modifyProductField {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      width: 100%;
+      label {
+        width: 20%;
+      }
+      input {
+        width: 80%;
+        height: 45px;
+      }
+      textarea {
+        width: 80%;
+        background-color: var(--primary-bg-color-light);
+        color: var(--primary-font-color);
+        min-height: 80px;
+        border-radius: 4px;
+        font-size: 1rem;
+      }
+      select {
+        display: flex;
+        border-radius: 4px;
+        width: 80%;
+        background-color: var(--primary-bg-color-light);
+        color: var(--primary-font-color);
+        cursor: pointer;
+        padding-left: 10px;
+        height: 45px;
+      }
+      .ratingContainer {
+        display: flex;
+        justify-content: center;
+        width: 80%;
+      }
+      .required {
+        border: 1px solid var(--error-color);
+      }
+    }
+    .modifyProductDialogButtons {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 100%;
+      width: 60%;
+    }
   }
 }

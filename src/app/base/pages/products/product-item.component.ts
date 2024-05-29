@@ -11,11 +11,11 @@ import * as _ from 'lodash'
 export class PublicProductItemComponent implements OnInit {
 
   @Input() product: PublicProductItem;
+  @Input() currency: string = 'EUR';
 
   constructor(public readonly productsService: ProductsService) {
     if (!this.product) {
       this.product = {
-        id : _.uniqueId("unknownProduct_"),
         name : 'Name',
         description : 'Description',
         category : 'Category',
@@ -27,9 +27,6 @@ export class PublicProductItemComponent implements OnInit {
     } else {
       if (!this.product.stock) {
         this.product.stock = 'UNKNOWN'
-      }
-      if (!this.product.id) {
-        this.product.id = _.uniqueId("unknownProduct_")
       }
     }
   }

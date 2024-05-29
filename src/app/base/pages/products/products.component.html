@@ -3,11 +3,11 @@
     <div class="left">
       <select name="sort" id="sort-select" [ngModel]="sortValue" (ngModelChange)="onSort($event)" #sortInput>
         <option value="" i18n="@@sortBy">Sort By</option>
-        <option value="name">Name</option>
-        <option value="category">Category</option>
-        <option value="price">Price</option>
-        <option value="stock">In Stock</option>
-        <option value="rating">Rating</option>
+        <option value="name" i18n="@@name">Name</option>
+        <option value="category" i18n="@@category">Category</option>
+        <option value="price" i18n="@@price">Price</option>
+        <option value="stock" i18n="@@inStock">In Stock</option>
+        <option value="rating" i18n="@@rating">Rating</option>
       </select>
       <div class="searchBar">
         <div class="searchButton">
@@ -26,12 +26,13 @@
     </div>
   </div>
   <div class="container" *ngIf="productsService.getGridView()">
-    <app-product-item *ngFor="let product of products" [product]="product"></app-product-item>
+    <app-product-item *ngFor="let product of products" [product]="product" [currency]="currency"></app-product-item>
   </div>
   <p-table [value]="products" *ngIf="productsService.getListView()" [paginator]="true" [rows]="15" [rowsPerPageOptions]="[5, 10, 15, 20]">
     <ng-template pTemplate="header">
       <tr>
         <th *ngFor="let col of columns" [ngClass]="col.field">{{col.header}}</th>
+        <th class="addToCart"></th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-product>
@@ -39,7 +40,7 @@
         <td class="lineBreak">{{product.name}}</td>
         <td class="lineBreak">{{product.description}}</td>
         <td class="centered">{{product.category}}</td>
-        <td class="centered">{{product.price | currency:'EUR':'symbol'}}</td>
+        <td class="centered">{{product.price | currency:currency:'symbol'}}</td>
         <td class="centered"><p-tag [value]="product.stock" [severity]="productsService.getStockSeverity(product.stock)"></p-tag></td>
         <td class="centered"><p-rating [(ngModel)]="product.rating" [readonly]="true" [cancel]="false"></p-rating></td>
         <td class="centered"><div class="addToCartButton"><i class="pi pi-shopping-cart"></i></div></td>

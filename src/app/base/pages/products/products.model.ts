@@ -1,5 +1,4 @@
 export interface PublicProductItem {
-  id: string;
   name: string;
   description: string;
   category: string;
@@ -10,6 +9,7 @@ export interface PublicProductItem {
 }
 
 export interface AdminProductItem {
+  _id: any;
   name: string;
   description: string;
   category: string;

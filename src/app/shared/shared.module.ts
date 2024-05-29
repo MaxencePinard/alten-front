@@ -21,7 +21,6 @@ import { TableActionsCellComponent } from './ui/table/table-actions-cell/table-a
 @NgModule({
   declarations: [
     InfoIconComponent,
-
     AnimatedButtonComponent,
     ListComponent,
     FileUploadInputComponent,
