@@ -95,7 +95,6 @@ export class AdminComponent implements OnInit {
   }
 
   confirmDelete() {
-    console.log(this.productToDelete);
     this.dataService.deleteProduct(this.productToDelete).subscribe(response => {
       this.showModifyProductDialog = false;
       this.isNew = false;
@@ -121,6 +120,7 @@ export class AdminComponent implements OnInit {
       this.initProductsList();
     });
     this.showDeleteSelectedDialog = false;
+    this.adminService.toggleDeleteButton(false);
   }
 
   initProductsList(): void {
