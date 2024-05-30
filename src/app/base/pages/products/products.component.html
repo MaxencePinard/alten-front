@@ -25,8 +25,16 @@
       </div>
     </div>
   </div>
-  <div class="container" *ngIf="productsService.getGridView()">
+  <!--<div class="container" *ngIf="productsService.getGridView()">
     <app-product-item *ngFor="let product of products" [product]="product" [currency]="currency"></app-product-item>
+  </div>-->
+  <ul class="container" *ngIf="productsService.getGridView()">
+      <li *ngFor="let product of products | paginate: { itemsPerPage: 12, currentPage: p }">
+        <app-product-item [product]="product" [currency]="currency"></app-product-item>
+      </li>
+  </ul>
+  <div class="pagination" *ngIf="productsService.getGridView()">
+    <p-paginator (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows" [totalRecords]="products.length"></p-paginator>
   </div>
   <p-table [value]="products" *ngIf="productsService.getListView()" [paginator]="true" [rows]="15" [rowsPerPageOptions]="[5, 10, 15, 20]">
     <ng-template pTemplate="header">

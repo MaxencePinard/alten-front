@@ -124,6 +124,21 @@
       grid-template-columns: repeat(3, 1fr);
     }
   }
+  ul {
+    list-style-type: none;
+    margin-block-start: 0;
+    margin-block-end: 1px;
+  }
+
+  .pagination {
+    width: 100%;
+    max-width: 1200px;
+    background-color: var(--primary-bg-color-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 
   p-table {
     width: 100%;

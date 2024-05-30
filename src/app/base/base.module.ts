@@ -14,6 +14,8 @@ import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { DialogModule } from 'primeng/dialog';
 import { LoginComponent } from 'app/base/login/login.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { PaginatorModule } from 'primeng/paginator';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { LoginComponent } from 'app/base/login/login.component';
     ReactiveFormsModule,
     TableModule,
     TagModule,
-    DialogModule
+    DialogModule,
+    NgxPaginationModule,
+    PaginatorModule
   ],
   exports: [NavbarComponent, FooterComponent, SidenavComponent, BreadcrumbComponent]
 })

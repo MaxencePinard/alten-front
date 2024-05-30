@@ -15,6 +15,9 @@ export class ProductsComponent implements OnInit {
   currency = 'EUR';
   sortValue = "";
   searchValue = "";
+  p: number = 1;
+  first: number = 0;
+  rows: number = 12;
 
   constructor(public readonly productsService: ProductsService, public readonly dataService: DataService) {
   }
@@ -23,6 +26,13 @@ export class ProductsComponent implements OnInit {
     this.getProductsList();
     this.getProductsColumns();
     this.getCurrency();
+  }
+
+  public onPageChange(event): void {
+    console.log(event);
+    this.first = event.first;
+    this.rows = event.rows;
+    this.p = event.page + 1;
   }
 
   public onSort(event): void {
