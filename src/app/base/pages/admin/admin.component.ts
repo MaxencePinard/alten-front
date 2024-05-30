@@ -97,7 +97,6 @@ export class AdminComponent implements OnInit {
   confirmDelete() {
     console.log(this.productToDelete);
     this.dataService.deleteProduct(this.productToDelete).subscribe(response => {
-      console.log(response);
       this.showModifyProductDialog = false;
       this.isNew = false;
       this.initProductsList();
@@ -115,6 +114,12 @@ export class AdminComponent implements OnInit {
   }
 
   confirmDeleteSelected() {
+    const idList = this.adminService.getProductsIdList(this.selectedProducts);
+    this.dataService.deleteSelectedProducts(idList).subscribe(response => {
+      this.showModifyProductDialog = false;
+      this.isNew = false;
+      this.initProductsList();
+    });
     this.showDeleteSelectedDialog = false;
   }
 

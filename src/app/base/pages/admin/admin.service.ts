@@ -100,4 +100,12 @@ export class AdminService {
       }
       return isValid;
     }
+
+    public getProductsIdList(products: AdminProductItem[]): string[] {
+      const idList = [];
+      for (let i=0; i<products.length; i++) {
+        idList.push(products[i]._id);
+      }
+      return idList;
+    }
 }
