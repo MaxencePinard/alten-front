@@ -5,10 +5,12 @@ import { ProductsComponent } from 'app/base/pages/products/products.component';
 import { AdminComponent } from 'app/base/pages/admin/admin.component';
 import { PagenotfoundComponent } from 'app/base/pages/pagenotfound/pagenotfound.component';
 import { AuthGuard, AdminGuard } from 'app/data/services/login.service';
+import { DashboardComponent } from 'app/base/pages/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: 'products', component: ProductsComponent },
   { path: 'admin', component: AdminComponent, canActivate:[AdminGuard] },
+  { path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard] },
   { path: '', component: HomeComponent },
   { path: '**', component: PagenotfoundComponent },
 ];

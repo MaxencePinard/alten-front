@@ -6,7 +6,8 @@ import { AdminProductItem } from 'app/base/pages/products/products.model';
 import { DataService } from 'app/data/services/data.service';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { LoginService } from 'app/data/services/login.service';
-import * as _ from 'lodash'
+import * as _ from 'lodash';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-admin',
@@ -29,7 +30,8 @@ export class AdminComponent implements OnInit {
   productToDelete: AdminProductItem;
   isNew = false;
 
-  constructor(public readonly adminService: AdminService,
+  constructor(private messageService: MessageService,
+    public readonly adminService: AdminService,
     public readonly productsService: ProductsService,
     public readonly loginService: LoginService,
     public readonly dataService: DataService) {
@@ -104,11 +106,13 @@ export class AdminComponent implements OnInit {
           this.showModifyProductDialog = false;
           this.isNew = false;
           this.initProductsList();
+          this.messageService.add({ severity: 'success', detail: $localize`:@@productCreated:` });
         });
       } else {
         this.dataService.modifyProduct(this.modifyProductItem).subscribe(response => {
           this.showModifyProductDialog = false;
           this.isNew = false;
+          this.messageService.add({ severity: 'success', detail: $localize`:@@productModified:` });
         });
       }
     }
@@ -131,6 +135,7 @@ export class AdminComponent implements OnInit {
       this.showModifyProductDialog = false;
       this.isNew = false;
       this.initProductsList();
+      this.messageService.add({ severity: 'success', detail: $localize`:@@productDeleted:` });
     });
     this.showDeleteDialog = false;
   }
@@ -150,6 +155,7 @@ export class AdminComponent implements OnInit {
       this.showModifyProductDialog = false;
       this.isNew = false;
       this.initProductsList();
+      this.messageService.add({ severity: 'success', detail: $localize`:@@productsDeleted:` });
     });
     this.showDeleteSelectedDialog = false;
     this.adminService.toggleDeleteButton(false);

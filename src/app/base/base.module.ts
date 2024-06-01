@@ -10,13 +10,9 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { PublicProductItemComponent } from './pages/products/product-item.component';
 import { AdminComponent } from 'app/base/pages/admin/admin.component';
-import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
-import { DialogModule } from 'primeng/dialog';
 import { LoginComponent } from 'app/base/login/login.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { PaginatorModule } from 'primeng/paginator';
-import { MenuModule } from 'primeng/menu';
 
 @NgModule({
   declarations: [
@@ -34,12 +30,8 @@ import { MenuModule } from 'primeng/menu';
     CommonModule,
     SharedModule,
     ReactiveFormsModule,
-    TableModule,
     TagModule,
-    DialogModule,
-    NgxPaginationModule,
-    PaginatorModule,
-    MenuModule
+    NgxPaginationModule
   ],
   exports: [NavbarComponent, FooterComponent, SidenavComponent, BreadcrumbComponent]
 })

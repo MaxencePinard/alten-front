@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { LoginService } from 'app/data/services/login.service';
 import { LoginComponentService } from 'app/base/login/login.service';
 import { User } from 'app/base/login/login.model';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-login',
@@ -31,7 +32,8 @@ export class LoginComponent {
 
   public userName: string = '';
 
-  constructor(public readonly dataService: DataService,
+  constructor(private messageService: MessageService,
+    public readonly dataService: DataService,
     public readonly cookieService: CookieService,
     public readonly loginService: LoginService,
     public readonly loginComponentService: LoginComponentService,
@@ -106,7 +108,7 @@ export class LoginComponent {
         this.showLoginDialog = false;
         this.resetSignupUser();
         this.router.navigate(['']);
-        window.location.reload()
+        window.location.reload();
       },
       (error) => {
         console.error('Error handler:', error);
@@ -167,6 +169,10 @@ export class LoginComponent {
       email: '',
       password: ''
     }
+  }
+
+  goToDashboard(): void {
+    this.router.navigate(['/dashboard']);
   }
 
 }

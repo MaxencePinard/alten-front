@@ -264,6 +264,38 @@
         <source>Edit Columns</source>
         <target>Edit Columns</target>
       </trans-unit>
+      <trans-unit id="productCreated" datatype="html">
+        <source>Product created</source>
+        <target>Product created</target>
+      </trans-unit>
+      <trans-unit id="productDeleted" datatype="html">
+        <source>Product deleted</source>
+        <target>Product deleted</target>
+      </trans-unit>
+      <trans-unit id="productsDeleted" datatype="html">
+        <source>Products deleted</source>
+        <target>Products deleted</target>
+      </trans-unit>
+      <trans-unit id="productModified" datatype="html">
+        <source>Product modified</source>
+        <target>Product modified</target>
+      </trans-unit>
+      <trans-unit id="loggedIn" datatype="html">
+        <source>Logged in</source>
+        <target>Logged in</target>
+      </trans-unit>
+      <trans-unit id="loggedOut" datatype="html">
+        <source>Logged out</source>
+        <target>Logged out</target>
+      </trans-unit>
+      <trans-unit id="accountCreated" datatype="html">
+        <source>Account created</source>
+        <target>Account created</target>
+      </trans-unit>
+      <trans-unit id="dashboard" datatype="html">
+        <source>Dashboard</source>
+        <target>Dashboard</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

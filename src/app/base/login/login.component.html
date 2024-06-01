@@ -2,6 +2,10 @@
   <span *ngIf="isAuthenticated">{{userName}}</span>
   <button #toggleButton pButton icon="pi pi-user" type="button" class="p-button-rounded p-button-outlined" (click)="onShowLoginDialog()"></button>
   <ul #menu class="logoutMenu" *ngIf="userMenuDisplayed">
+    <li (click)="goToDashboard()">
+      <i class="pi pi-home"></i>
+      <p i18n="@@dashboard">Dashboard</p>
+    </li>
     <li (click)="onProfile()">
       <i class="pi pi-user"></i>
       <p i18n="@@profile">Profile</p>
