@@ -9,6 +9,7 @@ import { AppRoutingModule } from 'app/app-routing.module';
 import { AppComponent } from 'app/app.component';
 import { BaseModule } from 'app/base/base.module';
 import { SharedModule } from 'app/shared/shared.module';
+import { TokenService } from 'app/data/services/token.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +22,8 @@ import { SharedModule } from 'app/shared/shared.module';
     BaseModule
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: $localize.locale }
+    { provide: LOCALE_ID, useValue: $localize.locale },
+    TokenService
   ],
   bootstrap: [AppComponent]
 })

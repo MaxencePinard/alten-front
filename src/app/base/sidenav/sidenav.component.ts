@@ -4,6 +4,7 @@ import { SidenavItem } from 'app/base/sidenav/sidenav.model';
 import { SidenavService } from 'app/base/sidenav/sidenav.service';
 import { SIDENAV_ITEMS } from 'app/base/sidenav/SIDENAV_ITEMS';
 import { environment } from 'environments/environment';
+import { LoginService } from 'app/data/services/login.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -19,12 +20,15 @@ export class SidenavComponent implements OnInit {
 
   constructor(
     public readonly sidenavService: SidenavService,
+    public readonly loginService: LoginService,
     private readonly router: Router
   ) {
   }
 
   ngOnInit(): void {
-
+    if (!this.loginService.isLoggedIn() || !this.loginService.isAdmin()) {
+      this.sidenavItems = this.sidenavItems.filter(item => item.role !== 'admin');
+    }
   }
 
   public onMouseover(hovering: boolean): void {

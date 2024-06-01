@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { LoginService } from 'app/base/login/login.service';
 
 @Component({
   selector: 'app-navbar',
@@ -19,7 +18,7 @@ export class NavbarComponent {
     { label: 'Logout', icon: 'pi pi-fw pi-power-off', command: null },
   ];
 
-  constructor(public readonly loginService: LoginService) {}
+  constructor() {}
 
 
 }

@@ -5,6 +5,8 @@ import { ProductsService } from 'app/base/pages/products/products.service';
 import { AdminProductItem } from 'app/base/pages/products/products.model';
 import { DataService } from 'app/data/services/data.service';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { LoginService } from 'app/data/services/login.service';
+import * as _ from 'lodash'
 
 @Component({
   selector: 'app-admin',
@@ -14,18 +16,22 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 export class AdminComponent implements OnInit {
 
   columns = [];
+  allColumns = [];
+  editColumns = [];
   products = [];
   selectedProducts = [];
   currency = 'EUR';
   showDeleteDialog = false;
   showDeleteSelectedDialog = false;
   showModifyProductDialog = false;
+  showEditColumnsDialog = false;
   modifyProductItem: AdminProductItem;
   productToDelete: AdminProductItem;
   isNew = false;
 
   constructor(public readonly adminService: AdminService,
     public readonly productsService: ProductsService,
+    public readonly loginService: LoginService,
     public readonly dataService: DataService) {
   }
 
@@ -39,8 +45,34 @@ export class AdminComponent implements OnInit {
     this.adminService.toggleDeleteButton(this.selectedProducts.length > 0);
   }
 
-  getHidden(index): boolean {
-    return this.columns[index] ? !this.columns[index].displayed : false;
+  onShowColumnEditDialog() {
+    this.editColumns = _.cloneDeep(this.allColumns);
+    this.showEditColumnsDialog = true;
+  }
+
+  onCheckColumn(i: number): void {
+    this.editColumns[i].displayed = !this.editColumns[i].displayed;
+  }
+
+  onColumnEditValidate(): void {
+    const edittedColumns = [];
+    for (let i=0; i<this.editColumns.length; i++) {
+      if (this.editColumns[i].displayed) {
+        edittedColumns.push(this.editColumns[i].field);
+      }
+    }
+    this.dataService.editAdminProductsColumns(this.loginService.getUserId(), edittedColumns).subscribe(response => {
+      this.getAdminProductsColumns();
+      this.showEditColumnsDialog = false;
+    });
+  }
+
+  onColumnEditCancel(): void {
+    this.showEditColumnsDialog = false;
+  }
+
+  getHidden(field): boolean {
+    return !this.columns.some(col => col.field === field);
   }
 
   onNewItemInit() {
@@ -130,8 +162,14 @@ export class AdminComponent implements OnInit {
   }
 
   getAdminProductsColumns(): void {
-    this.dataService.getAdminProductsColumns().subscribe(response => {
-      this.columns = response;
+    this.dataService.getUser(this.loginService.getUserId()).subscribe(response => {
+      this.dataService.getAdminProductsColumns().subscribe(response2 => {
+        this.allColumns = response2;
+        for (let column of this.allColumns) {
+          column.displayed = response.adminColumns.includes(column.field);
+        }
+        this.columns = response2.filter(col => response.adminColumns.includes(col.field));
+      });
     });
   }
 

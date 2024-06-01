@@ -15,6 +15,7 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
       en: "Admin",
       fr: "Admin"
     },
-    link: 'admin'
+    link: 'admin',
+    role: 'admin'
   }
 ];

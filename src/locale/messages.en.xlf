@@ -140,8 +140,8 @@
         <note priority="1" from="description">Logo text</note>
       </trans-unit>
       <trans-unit id="loginRouteText" datatype="html">
-        <source>Log out</source>
-        <target>Log out</target>
+        <source>Logout</source>
+        <target>Logout</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/header/header.component.html</context>
           <context context-type="linenumber">21</context>
@@ -227,6 +227,42 @@
       <trans-unit id="actions" datatype="html">
         <source>Actions</source>
         <target>Actions</target>
+      </trans-unit>
+      <trans-unit id="signUp" datatype="html">
+        <source>Sign up</source>
+        <target>Sign up</target>
+      </trans-unit>
+      <trans-unit id="signUpToLogin" datatype="html">
+        <source>You already have an account ? Log in</source>
+        <target>You already have an account ? Log in</target>
+      </trans-unit>
+      <trans-unit id="loginToSignUp" datatype="html">
+        <source>You don't have an account ? Sign up</source>
+        <target>You don't have an account ? Sign up</target>
+      </trans-unit>
+      <trans-unit id="username" datatype="html">
+        <source>Username</source>
+        <target>Username</target>
+      </trans-unit>
+      <trans-unit id="profile" datatype="html">
+        <source>Profile</source>
+        <target>Profile</target>
+      </trans-unit>
+      <trans-unit id="editProfile" datatype="html">
+        <source>Edit profile</source>
+        <target>Edit profile</target>
+      </trans-unit>
+      <trans-unit id="validate" datatype="html">
+        <source>Validate</source>
+        <target>Validate</target>
+      </trans-unit>
+      <trans-unit id="cancel" datatype="html">
+        <source>Cancel</source>
+        <target>Cancel</target>
+      </trans-unit>
+      <trans-unit id="editColumns" datatype="html">
+        <source>Edit Columns</source>
+        <target>Edit Columns</target>
       </trans-unit>
     </body>
   </file>

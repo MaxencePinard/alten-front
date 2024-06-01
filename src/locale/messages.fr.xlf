@@ -115,12 +115,7 @@
       </trans-unit>
       <trans-unit id="welcomeAddress" datatype="html">
         <source>Welcome to Dashboard!</source>
-        <target>Bienvenue dans Dashboard!</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/dashboard/dashboard.component.html</context>
-          <context context-type="linenumber">2</context>
-        </context-group>
-        <note priority="1" from="description">Addressing the user</note>
+        <target>Bienvenue dans le Tableau de bord!</target>
       </trans-unit>
       <trans-unit id="logoText" datatype="html">
         <source>Logo</source>
@@ -132,8 +127,8 @@
         <note priority="1" from="description">Logo text</note>
       </trans-unit>
       <trans-unit id="loginRouteText" datatype="html">
-        <source>Log out</source>
-        <target>Connectez - Out</target>
+        <source>Logout</source>
+        <target>Déconnexion</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/header/header.component.html</context>
           <context context-type="linenumber">21</context>
@@ -223,6 +218,42 @@
       <trans-unit id="actions" datatype="html">
         <source>Actions</source>
         <target>Actions</target>
+      </trans-unit>
+      <trans-unit id="signUp" datatype="html">
+        <source>Sign up</source>
+        <target>Créer un compte</target>
+      </trans-unit>
+      <trans-unit id="signUpToLogin" datatype="html">
+        <source>You already have an account ? Log in</source>
+        <target>Vous avez déjà un compte ? Connectez-vous</target>
+      </trans-unit>
+      <trans-unit id="loginToSignUp" datatype="html">
+        <source>You don't have an account ? Sign up</source>
+        <target>Vous n'avez pas de compte ? Inscrivez-vous</target>
+      </trans-unit>
+      <trans-unit id="username" datatype="html">
+        <source>Username</source>
+        <target>Nom d'utilisateur</target>
+      </trans-unit>
+      <trans-unit id="profile" datatype="html">
+        <source>Profile</source>
+        <target>Profil</target>
+      </trans-unit>
+      <trans-unit id="editProfile" datatype="html">
+        <source>Edit profile</source>
+        <target>Modifier le profil</target>
+      </trans-unit>
+      <trans-unit id="validate" datatype="html">
+        <source>Validate</source>
+        <target>Valider</target>
+      </trans-unit>
+      <trans-unit id="cancel" datatype="html">
+        <source>Cancel</source>
+        <target>Annuler</target>
+      </trans-unit>
+      <trans-unit id="editColumns" datatype="html">
+        <source>Edit Columns</source>
+        <target>Modifier les colonnes</target>
       </trans-unit>
     </body>
   </file>

@@ -17,7 +17,7 @@
         <p i18n="@@delete">Delete</p>
       </div>
     </div>
-    <div class="right">
+    <div class="right" (click)="onShowColumnEditDialog()">
       <i class="pi pi-cog"></i>
     </div>
   </div>
@@ -34,7 +34,7 @@
         <th class="checkbox">
           <p-tableHeaderCheckbox (click)="onCheck()"></p-tableHeaderCheckbox>
         </th>
-        <th *ngFor="let col of columns" [class.hidden]="!col.displayed" [ngClass]="col.field" pSortableColumn="{{col.field}}">
+        <th *ngFor="let col of columns" [ngClass]="col.field" pSortableColumn="{{col.field}}">
           {{col.header}}
           <p-sortIcon *ngIf="col.sortable" field="{{col.field}}"></p-sortIcon>
         </th>
@@ -42,7 +42,7 @@
       </tr>
       <tr>
         <th></th>
-        <th *ngFor="let col of columns" [class.hidden]="!col.displayed">
+        <th *ngFor="let col of columns">
           <p-columnFilter type="text" field="{{col.field}}" ariaLabel="Filter Name" *ngIf="col.searchable"></p-columnFilter>
         </th>
         <th></th>
@@ -51,38 +51,15 @@
     <ng-template pTemplate="body" let-product let-ri="rowIndex">
       <tr>
         <td class="centered"><p-tableCheckbox [value]="product"></p-tableCheckbox></td>
-        <td [class.hidden]="getHidden(0)">
-          <p-cellEditor>
-            <ng-template pTemplate="input">
-              <input
-                pInputText type="text"
-                [(ngModel)]="product.code"/>
-            </ng-template>
-            <ng-template pTemplate="output">
-              {{product.code}}
-            </ng-template>
-          </p-cellEditor>
-        </td>
-        <td [class.hidden]="getHidden(1)">
-          <p-cellEditor>
-            <ng-template pTemplate="input">
-              <input
-                  pInputText type="text"
-                  [(ngModel)]="product.name"
-                  required />
-            </ng-template>
-            <ng-template pTemplate="output">
-              {{product.name}}
-            </ng-template>
-          </p-cellEditor>
-        </td>
-        <td class="lineBreak" [class.hidden]="getHidden(2)">{{product.description}}</td>
-        <td class="centered" [class.hidden]="getHidden(3)">{{product.category}}</td>
-        <td class="centered" [class.hidden]="getHidden(4)">{{product.price | currency:currency:'symbol'}}</td>
-        <td class="centered" [class.hidden]="getHidden(5)"><p-tag [value]="product.stock" [severity]="productsService.getStockSeverity(product.stock)"></p-tag></td>
-        <td class="centered" [class.hidden]="getHidden(6)"><p-rating [(ngModel)]="product.rating" [readonly]="true" [cancel]="false"></p-rating></td>
+        <td [class.hidden]="getHidden('code')">{{product.code}}</td>
+        <td [class.hidden]="getHidden('name')">{{product.name}}</td>
+        <td class="lineBreak" [class.hidden]="getHidden('description')">{{product.description}}</td>
+        <td class="centered" [class.hidden]="getHidden('category')">{{product.category}}</td>
+        <td class="centered" [class.hidden]="getHidden('price')">{{product.price | currency:currency:'symbol'}}</td>
+        <td class="centered" [class.hidden]="getHidden('stock')"><p-tag [value]="product.stock" [severity]="productsService.getStockSeverity(product.stock)"></p-tag></td>
+        <td class="centered" [class.hidden]="getHidden('rating')"><p-rating [(ngModel)]="product.rating" [readonly]="true" [cancel]="false"></p-rating></td>
         <td>
-          <div  class="actionButtons">
+          <div class="actionButtons">
             <button
                 pButton
                 pRipple
@@ -170,6 +147,16 @@
             class="p-button-rounded p-button-text p-button-danger">
         </button>
       </div>
+    </div>
+  </p-dialog>
+  <p-dialog i18n-header="@@editColumns" header="Edit Columns" [modal]="true" [(visible)]="showEditColumnsDialog" [style]="{ 'margin-left': '100px' }">
+    <div class="columnToDisplay" *ngFor="let col of editColumns; let index=index" (click)="onCheckColumn(index)">
+        <p>{{col.header}}</p>
+        <input type="checkbox" [(ngModel)]="col.displayed"/>
+    </div>
+    <div class="dialogButtons">
+      <div class="validateButton" (click)="onColumnEditValidate()" i18n="@@validate">Validate</div>
+      <div class="cancelButton" (click)="onColumnEditCancel()" i18n="@@cancel">Cancel</div>
     </div>
   </p-dialog>
 </div>

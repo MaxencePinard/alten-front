@@ -59,6 +59,9 @@
           color: white;
         }
       }
+      .newButton:hover {
+        background-color: var(--primary-color-hover);
+      }
 
       .deleteButtonEnabled {
         background-color: var(--error-color);
@@ -93,6 +96,9 @@
         color: white;
         font-size: 20px;
       }
+    }
+    .right:hover {
+      background-color: var(--primary-color-hover);
     }
   }
 
@@ -239,6 +245,56 @@
       align-items: center;
       height: 100%;
       width: 60%;
+    }
+  }
+
+  .columnToDisplay {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin: 10px 5px;
+    height: 40px;
+    padding: 0 10px;
+    p {
+      margin: 0;
+    }
+  }
+  .columnToDisplay:hover {
+    background-color: var(--secondary-bg-color);
+    border-radius: 2px;
+  }
+
+  .dialogButtons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    margin-top: 20px;
+
+    div {
+      display: flex;
+      border-radius: 5px;
+      overflow: hidden;
+      cursor: pointer;
+      height: 40px;
+      padding: 0 20px 0 20px;
+      align-items: center;
+      justify-content: center;
+    }
+    .validateButton {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    .validateButton:hover {
+      background-color: var(--primary-color-hover);
+    }
+    .cancelButton {
+      background-color: var(--primary-bg-color-light);
+      color: var(--primary-font-color);
+    }
+    .cancelButton:hover {
+      background-color: var(--tertiary-bg-color);
     }
   }
 }
