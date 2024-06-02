@@ -8,4 +8,5 @@ export interface SidenavItem {
     childEntityLink?: string;
     limitedChildrenVisibility?: boolean;
     hidden?: boolean;
+    role?: string;
 }

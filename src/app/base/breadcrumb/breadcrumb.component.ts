@@ -5,6 +5,7 @@ import { SidenavService } from 'app/base/sidenav/sidenav.service';
 import { SIDENAV_ITEMS } from 'app/base/sidenav/SIDENAV_ITEMS';
 import { MenuItem } from 'primeng/api';
 import { filter, map, startWith, tap } from 'rxjs';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-breadcrumb',
@@ -13,20 +14,18 @@ import { filter, map, startWith, tap } from 'rxjs';
 })
 export class BreadcrumbComponent implements OnInit {
 
-  @Input() public lang = 'en';
   public items: MenuItem[] = [];
   private readonly sidenavItems: SidenavItem[] = SIDENAV_ITEMS;
   private homeItem: MenuItem = { label: 'Home', routerLink: '/' };
 
   constructor(
     private readonly sidenavService: SidenavService,
-    private readonly router: Router,
+    private readonly router: Router
   ) {
-
   }
 
   ngOnInit(): void {
-    this.router.events.pipe(      
+    this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
       map((event: NavigationEnd) => event.url),
       startWith(this.router.url),
@@ -40,7 +39,7 @@ export class BreadcrumbComponent implements OnInit {
     const firstPath: SidenavItem = this.sidenavItems.find(item => '/' + item.id === path);
     if (firstPath) {
       this.items.push({
-        label: firstPath.labels[this.lang],
+        label: firstPath.labels[environment.lang],
         routerLink: firstPath.link,
         command: () => this.sidenavService.setCurrentEntityName('')
       });

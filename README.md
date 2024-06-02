@@ -1,34 +1,31 @@
+# alten-front
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Si vous n'avez pas installé node, rendez-vous sur https://nodejs.org/en/download/prebuilt-installer et suivez les instructions pour l'installation.\
+Si vous n'avez pas installé angular, ouvrez l'invité de commande et exécutez la commande `npm install -g @angular/cli`
 
-## Json server
+## Back-end
 
+Avant de lancer l'application front-end, assurez-vous d'avoir lancé l'application back-end : https://github.com/MaxencePinard/alten-back
 
+## Application de développement
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Dans l'invité de commande, placez-vous à la racine du projet, exécutez `npm install`, puis lancez une des commandes suivantes :\
+`ng serve` pour l'application par défaut\
+`ng serve --configuration=fr` pour la configuration en français\
+`ng serve --configuration=en` pour la configuration en anglais\
+Ensuite, dans le navigateur, rendez-vous sur `http://localhost:4200/`.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Pour créer un build `ng build`, placez-vous à la racine du projet et lancez une des commandes suivantes :
+`ng build` pour l'application par défaut\
+`ng build --configuration=fr` pour la configuration en français\
+`ng build --configuration=en` pour la configuration en anglais
 
-## serve a Build
+## Serve Build
 
-$ npm i -g serve
-$ cd dist/product-trial
-\$ serve
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+`npm i -g serve`\
+`cd dist`\
+`serve`

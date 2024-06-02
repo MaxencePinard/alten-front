@@ -1,0 +1,107 @@
+.user-button {
+  margin: 0 5px;
+  display: flex;
+  align-items: center;
+
+  img, button {
+    margin-left: 5px;
+  }
+}
+
+.logoutMenu {
+  list-style-type: none;
+  margin-block-start: 0;
+  margin-block-end: 1px;
+  position: absolute;
+  right: 5px;
+  top: 60px;
+  background-color: var(--primary-bg-color-light);
+  border-radius: 2px;
+  border: 1px solid var(--primary-bg-color);
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+
+  li {
+    padding: 5px 8px;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    i, p {
+      margin: 5px;
+    }
+  }
+
+  li:hover {
+    background-color: var(--secondary-bg-color);
+    i, p {
+      color: var(--secondary-font-color);
+    }
+  }
+}
+
+.loginDialog {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  .loginField {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .invalid {
+      border: 1px solid var(--error-color);
+    }
+  }
+  .dialogButtons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+
+    div {
+      display: flex;
+      border-radius: 5px;
+      overflow: hidden;
+      cursor: pointer;
+      height: 40px;
+      padding: 0 20px 0 20px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .loginButton {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    .loginButton:hover {
+      background-color: var(--primary-color-hover);
+    }
+
+    .cancelButton {
+      background-color: var(--primary-bg-color-light);
+      color: var(--primary-font-color);
+    }
+    .cancelButton:hover {
+      background-color: var(--tertiary-bg-color);
+    }
+  }
+
+  .error {
+    color: var(--error-color);
+    text-align: center;
+    margin: 0;
+  }
+
+  .link {
+    color: var(--primary-color);
+    text-align: center;
+    margin: 10px 0 0 0;
+    cursor: pointer;
+  }
+
+}

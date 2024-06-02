@@ -5,13 +5,9 @@
       <trans-unit id="logInForm" datatype="html">
         <source>Log in</source>
         <target>Log in</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/login/login.component.html</context>
-          <context context-type="linenumber">4</context>
-        </context-group>
         <note priority="1" from="description">Login Form</note>
       </trans-unit>
-       <trans-unit id="emailPlaceholder" datatype="html">
+      <trans-unit id="emailPlaceholder" datatype="html">
         <source>Email</source>
         <target>Email</target>
         <context-group purpose="location">
@@ -68,7 +64,7 @@
         </context-group>
         <note priority="1" from="description">Go to login second step</note>
       </trans-unit>
-       <trans-unit id="passwordPlaceholder" datatype="html">
+      <trans-unit id="passwordPlaceholder" datatype="html">
         <source>Password</source>
         <target>Password</target>
         <context-group purpose="location">
@@ -122,10 +118,8 @@
         <note priority="1" from="description">Go to dashboard</note>
       </trans-unit>
       <trans-unit id="welcomeAddress" datatype="html">
-        <source>
-    Welcome to Dashboard!
-  </source>
-      <target>Welcome to Dashboard !</target>
+        <source>Welcome to Dashboard!</source>
+        <target>Welcome to Dashboard !</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/dashboard/dashboard.component.html</context>
           <context context-type="linenumber">2</context>
@@ -142,13 +136,161 @@
         <note priority="1" from="description">Logo text</note>
       </trans-unit>
       <trans-unit id="loginRouteText" datatype="html">
-        <source>Log out</source>
-        <target>Log out</target>
+        <source>Logout</source>
+        <target>Logout</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/header/header.component.html</context>
           <context context-type="linenumber">21</context>
         </context-group>
         <note priority="1" from="description">Login route text</note>
+      </trans-unit>
+      <trans-unit id="error404" datatype="html">
+        <source>404 Error</source>
+        <target>404 Error</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/base/pages/pagenotfound/pagenotfound.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pageNotFound" datatype="html">
+        <source>Page Not Found</source>
+        <target>Page Not Found</target>
+      </trans-unit>
+      <trans-unit id="sortBy" datatype="html">
+        <source>Sort By</source>
+        <target>Sort By</target>
+      </trans-unit>
+      <trans-unit id="search" datatype="html">
+        <source>Search</source>
+        <target>Search</target>
+      </trans-unit>
+      <trans-unit id="new" datatype="html">
+        <source>New</source>
+        <target>New</target>
+      </trans-unit>
+      <trans-unit id="delete" datatype="html">
+        <source>Delete</source>
+        <target>Delete</target>
+      </trans-unit>
+      <trans-unit id="deleteDialogMessage" datatype="html">
+        <source>Are you sure you want to delete this product ?</source>
+        <target>Are you sure you want to delete this product ?</target>
+      </trans-unit>
+      <trans-unit id="deleteSelectedDialogMessage" datatype="html">
+        <source>Are you sure you want to delete these products ?</source>
+        <target>Are you sure you want to delete these products ?</target>
+      </trans-unit>
+      <trans-unit id="yes" datatype="html">
+        <source>Yes</source>
+        <target>Yes</target>
+      </trans-unit>
+      <trans-unit id="no" datatype="html">
+        <source>No</source>
+        <target>No</target>
+      </trans-unit>
+      <trans-unit id="modifyProduct" datatype="html">
+        <source>Modify product</source>
+        <target>Modify product</target>
+      </trans-unit>
+      <trans-unit id="code" datatype="html">
+        <source>Code</source>
+        <target>Code</target>
+      </trans-unit>
+      <trans-unit id="name" datatype="html">
+        <source>Name</source>
+        <target>Name</target>
+      </trans-unit>
+      <trans-unit id="description" datatype="html">
+        <source>Description</source>
+        <target>Description</target>
+      </trans-unit>
+      <trans-unit id="category" datatype="html">
+        <source>Category</source>
+        <target>Category</target>
+      </trans-unit>
+      <trans-unit id="price" datatype="html">
+        <source>Price</source>
+        <target>Price</target>
+      </trans-unit>
+      <trans-unit id="inStock" datatype="html">
+        <source>In Stock</source>
+        <target>In Stock</target>
+      </trans-unit>
+      <trans-unit id="rating" datatype="html">
+        <source>Rating</source>
+        <target>Rating</target>
+      </trans-unit>
+      <trans-unit id="actions" datatype="html">
+        <source>Actions</source>
+        <target>Actions</target>
+      </trans-unit>
+      <trans-unit id="signUp" datatype="html">
+        <source>Sign up</source>
+        <target>Sign up</target>
+      </trans-unit>
+      <trans-unit id="signUpToLogin" datatype="html">
+        <source>You already have an account ? Log in</source>
+        <target>You already have an account ? Log in</target>
+      </trans-unit>
+      <trans-unit id="loginToSignUp" datatype="html">
+        <source>You don't have an account ? Sign up</source>
+        <target>You don't have an account ? Sign up</target>
+      </trans-unit>
+      <trans-unit id="username" datatype="html">
+        <source>Username</source>
+        <target>Username</target>
+      </trans-unit>
+      <trans-unit id="profile" datatype="html">
+        <source>Profile</source>
+        <target>Profile</target>
+      </trans-unit>
+      <trans-unit id="editProfile" datatype="html">
+        <source>Edit profile</source>
+        <target>Edit profile</target>
+      </trans-unit>
+      <trans-unit id="validate" datatype="html">
+        <source>Validate</source>
+        <target>Validate</target>
+      </trans-unit>
+      <trans-unit id="cancel" datatype="html">
+        <source>Cancel</source>
+        <target>Cancel</target>
+      </trans-unit>
+      <trans-unit id="editColumns" datatype="html">
+        <source>Edit Columns</source>
+        <target>Edit Columns</target>
+      </trans-unit>
+      <trans-unit id="productCreated" datatype="html">
+        <source>Product created</source>
+        <target>Product created</target>
+      </trans-unit>
+      <trans-unit id="productDeleted" datatype="html">
+        <source>Product deleted</source>
+        <target>Product deleted</target>
+      </trans-unit>
+      <trans-unit id="productsDeleted" datatype="html">
+        <source>Products deleted</source>
+        <target>Products deleted</target>
+      </trans-unit>
+      <trans-unit id="productModified" datatype="html">
+        <source>Product modified</source>
+        <target>Product modified</target>
+      </trans-unit>
+      <trans-unit id="loggedIn" datatype="html">
+        <source>Logged in</source>
+        <target>Logged in</target>
+      </trans-unit>
+      <trans-unit id="loggedOut" datatype="html">
+        <source>Logged out</source>
+        <target>Logged out</target>
+      </trans-unit>
+      <trans-unit id="accountCreated" datatype="html">
+        <source>Account created</source>
+        <target>Account created</target>
+      </trans-unit>
+      <trans-unit id="dashboard" datatype="html">
+        <source>Dashboard</source>
+        <target>Dashboard</target>
       </trans-unit>
     </body>
   </file>

@@ -1,0 +1,162 @@
+<div class="admin">
+  <div class="top-bar">
+    <div class="left">
+      <div class="button newButton" (click)="onNewItemInit()">
+        <div class="icon">
+          <i class="pi pi-plus"></i>
+        </div>
+        <p i18n="@@new">New</p>
+      </div>
+      <div class="button"
+      (click)="adminService.getDeleteButtonEnabled() && showDeleteSelected()"
+      [class.deleteButtonEnabled]="adminService.getDeleteButtonEnabled()"
+      [class.deleteButtonDisabled]="!adminService.getDeleteButtonEnabled()">
+        <div class="icon">
+          <i class="pi pi-trash"></i>
+        </div>
+        <p i18n="@@delete">Delete</p>
+      </div>
+    </div>
+    <div class="right" (click)="onShowColumnEditDialog()">
+      <i class="pi pi-cog"></i>
+    </div>
+  </div>
+  <p-table [value]="products"
+    [(selection)]="selectedProducts"
+    [paginator]="true"
+    [rows]="15"
+    [rowsPerPageOptions]="[5, 10, 15, 20]"
+    selectionMode="multiple"
+    (onRowSelect)="onCheck()"
+    (onRowUnselect)="onCheck()">
+    <ng-template pTemplate="header">
+      <tr>
+        <th class="checkbox">
+          <p-tableHeaderCheckbox (click)="onCheck()"></p-tableHeaderCheckbox>
+        </th>
+        <th *ngFor="let col of columns" [ngClass]="col.field" pSortableColumn="{{col.field}}">
+          {{col.header}}
+          <p-sortIcon *ngIf="col.sortable" field="{{col.field}}"></p-sortIcon>
+        </th>
+        <th i18n="@@actions" class="actions">Actions</th>
+      </tr>
+      <tr>
+        <th></th>
+        <th *ngFor="let col of columns">
+          <p-columnFilter type="text" field="{{col.field}}" ariaLabel="Filter Name" *ngIf="col.searchable"></p-columnFilter>
+        </th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product let-ri="rowIndex">
+      <tr>
+        <td class="centered"><p-tableCheckbox [value]="product"></p-tableCheckbox></td>
+        <td [class.hidden]="getHidden('code')">{{product.code}}</td>
+        <td [class.hidden]="getHidden('name')">{{product.name}}</td>
+        <td class="lineBreak" [class.hidden]="getHidden('description')">{{product.description}}</td>
+        <td class="centered" [class.hidden]="getHidden('category')">{{product.category}}</td>
+        <td class="centered" [class.hidden]="getHidden('price')">{{product.price | currency:currency:'symbol'}}</td>
+        <td class="centered" [class.hidden]="getHidden('stock')"><p-tag [value]="product.stock" [severity]="productsService.getStockSeverity(product.stock)"></p-tag></td>
+        <td class="centered" [class.hidden]="getHidden('rating')"><p-rating [(ngModel)]="product.rating" [readonly]="true" [cancel]="false"></p-rating></td>
+        <td>
+          <div class="actionButtons">
+            <button
+                pButton
+                pRipple
+                type="button"
+                icon="pi pi-pencil"
+                (click)="onRowEditInit(product)"
+                class="p-button-rounded p-button-text">
+            </button>
+            <button
+                pButton
+                pRipple
+                type="button"
+                icon="pi pi-trash"
+                (click)="showDelete(product)"
+                class="p-button-rounded p-button-text p-button-danger">
+            </button>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p-dialog i18n-header="@@delete" header="Delete" [modal]="true" [(visible)]="showDeleteDialog" [style]="{ width: '25rem' }">
+    <span class="dialogMessage" i18n="@@deleteDialogMessage">Are you sure you want to delete this product ?</span>
+    <div class="dialogButtons">
+      <div class="dialogButton" (click)="confirmDelete()" i18n="@@yes">Yes</div>
+      <div class="dialogButton" (click)="cancelDelete()" i18n="@@no">No</div>
+    </div>
+  </p-dialog>
+  <p-dialog i18n-header="@@delete" header="Delete" [modal]="true" [(visible)]="showDeleteSelectedDialog" [style]="{ width: '30rem' }">
+    <span class="dialogMessage" i18n="@@deleteSelectedDialogMessage">Are you sure you want to delete this product ?</span>
+    <div class="dialogButtons">
+      <div class="dialogButton" (click)="confirmDeleteSelected()" i18n="@@yes">Yes</div>
+      <div class="dialogButton" (click)="cancelDelete()" i18n="@@no">No</div>
+    </div>
+  </p-dialog>
+  <p-dialog i18n-header="@@modifyProduct" header="Modify product" [modal]="true" [(visible)]="showModifyProductDialog" [style]="{ 'margin-left': '100px' }">
+    <div class="modifyProductDialog" *ngIf="!!modifyProductItem">
+      <div class="modifyProductField">
+          <label for="code" i18n="@@code">Code</label>
+          <input [(ngModel)]="modifyProductItem.code" pInputText id="modifyProductFieldCode" [class.required]="!adminService.getIsCodeValid()" autocomplete="off" />
+      </div>
+      <div class="modifyProductField">
+          <label for="name" i18n="@@name">Name</label>
+          <input [(ngModel)]="modifyProductItem.name" pInputText id="modifyProductFieldName" [class.required]="!adminService.getIsNameValid()" autocomplete="off" />
+      </div>
+      <div class="modifyProductField">
+          <label for="description" i18n="@@description">Description</label>
+          <textarea [(ngModel)]="modifyProductItem.description" name="modifyProductFieldDescription" [class.required]="!adminService.getIsDescriptionValid()" id="modifyProductFieldDescription"></textarea>
+      </div>
+      <div class="modifyProductField">
+          <label for="category" i18n="@@category">Category</label>
+          <input [(ngModel)]="modifyProductItem.category" pInputText id="modifyProductFieldCategory" [class.required]="!adminService.getIsCategoryValid()" autocomplete="off" />
+      </div>
+      <div class="modifyProductField">
+          <label for="price" i18n="@@price">Price</label>
+          <input [(ngModel)]="modifyProductItem.price" pInputText id="modifyProductFieldPrice" type="number" [class.required]="!adminService.getIsPriceValid()" autocomplete="off" />
+      </div>
+      <div class="modifyProductField">
+          <label for="inStock" i18n="@@inStock">In Stock</label>
+          <select name="stockSelect" id="modifyProductFieldStock" [(ngModel)]="modifyProductItem.stock" [class.required]="!adminService.getIsStockValid()">
+            <option value="INSTOCK">INSTOCK</option>
+            <option value="LOWSTOCK">LOWSTOCK</option>
+            <option value="OUTOFSTOCK">OUTOFSTOCK</option>
+          </select>
+      </div>
+      <div class="modifyProductField">
+          <label for="rating" i18n="@@rating">Rating</label>
+          <div class="ratingContainer"><p-rating [(ngModel)]="modifyProductItem.rating" [cancel]="false"></p-rating></div>
+      </div>
+      <div class="modifyProductDialogButtons">
+        <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-check"
+            (click)="onRowEditSave()"
+            class="p-button-rounded p-button-text p-button-success mr-2">
+        </button>
+        <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-times"
+            (click)="onRowEditCancel()"
+            class="p-button-rounded p-button-text p-button-danger">
+        </button>
+      </div>
+    </div>
+  </p-dialog>
+  <p-dialog i18n-header="@@editColumns" header="Edit Columns" [modal]="true" [(visible)]="showEditColumnsDialog" [style]="{ 'margin-left': '100px' }">
+    <div class="columnToDisplay" *ngFor="let col of editColumns; let index=index" (click)="onCheckColumn(index)">
+        <p>{{col.header}}</p>
+        <input type="checkbox" [(ngModel)]="col.displayed"/>
+    </div>
+    <div class="dialogButtons">
+      <div class="validateButton" (click)="onColumnEditValidate()" i18n="@@validate">Validate</div>
+      <div class="cancelButton" (click)="onColumnEditCancel()" i18n="@@cancel">Cancel</div>
+    </div>
+  </p-dialog>
+</div>

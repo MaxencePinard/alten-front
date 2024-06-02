@@ -18,9 +18,7 @@ export class NavbarComponent {
     { label: 'Logout', icon: 'pi pi-fw pi-power-off', command: null },
   ];
 
-  constructor(
-
-  ) {}
+  constructor() {}
 
 
 }

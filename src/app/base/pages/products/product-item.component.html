@@ -1,0 +1,20 @@
+<div class="item-grid">
+  <div class="top">
+    <div class="category">
+      <i class="pi pi-tag"></i>
+      <p>{{product.category}}</p>
+    </div>
+    <p-tag [value]="product.stock" [severity]="productsService.getStockSeverity(product.stock)"></p-tag>
+  </div>
+  <div class="middle">
+    <p>{{product.name}}</p>
+    <p>{{product.description}}</p>
+    <div class="rating">
+      <p-rating [(ngModel)]="product.rating" [stars]="5" [readonly]="true" [cancel]="false"></p-rating>
+    </div>
+  </div>
+  <div class="bottom">
+    <p>{{product.price | currency:currency:'symbol'}}</p>
+    <div class="addToCart"><i class="pi pi-shopping-cart"></i></div>
+  </div>
+</div>
