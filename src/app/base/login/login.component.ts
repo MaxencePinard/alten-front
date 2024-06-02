@@ -65,7 +65,7 @@ export class LoginComponent {
   }
 
   onShowLoginDialog(): void {
-    this.dialogHeader = $localize`:@@logInForm:`;
+    this.dialogHeader = $localize`:@@logInForm:` || 'Log In';
     if (!this.isAuthenticated) {
       this.showLoginDialog = true;
     } else {
@@ -76,9 +76,9 @@ export class LoginComponent {
   switchDialog(): void {
     this.showPassword = false;
     if (this.isLogin) {
-      this.dialogHeader = $localize`:@@signUp:`;
+      this.dialogHeader = $localize`:@@signUp:` || 'Sign Up';
     } else {
-      this.dialogHeader = $localize`:@@logInForm:`;
+      this.dialogHeader = $localize`:@@logInForm:` || 'Log In';
     }
     this.isLogin = !this.isLogin;
   }

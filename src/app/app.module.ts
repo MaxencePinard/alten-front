@@ -22,7 +22,7 @@ import { TokenService } from 'app/data/services/token.service';
     BaseModule
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: $localize.locale },
+    { provide: LOCALE_ID, useValue: $localize.locale || 'en' },
     TokenService
   ],
   bootstrap: [AppComponent]

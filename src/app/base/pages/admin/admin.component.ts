@@ -106,13 +106,13 @@ export class AdminComponent implements OnInit {
           this.showModifyProductDialog = false;
           this.isNew = false;
           this.initProductsList();
-          this.messageService.add({ severity: 'success', detail: $localize`:@@productCreated:` });
+          this.messageService.add({ severity: 'success', detail: $localize`:@@productCreated:` || 'Product created' });
         });
       } else {
         this.dataService.modifyProduct(this.modifyProductItem).subscribe(response => {
           this.showModifyProductDialog = false;
           this.isNew = false;
-          this.messageService.add({ severity: 'success', detail: $localize`:@@productModified:` });
+          this.messageService.add({ severity: 'success', detail: $localize`:@@productModified:` || 'Product modified' });
         });
       }
     }
@@ -135,7 +135,7 @@ export class AdminComponent implements OnInit {
       this.showModifyProductDialog = false;
       this.isNew = false;
       this.initProductsList();
-      this.messageService.add({ severity: 'success', detail: $localize`:@@productDeleted:` });
+      this.messageService.add({ severity: 'success', detail: $localize`:@@productDeleted:` || 'Product deleted' });
     });
     this.showDeleteDialog = false;
   }
@@ -155,7 +155,7 @@ export class AdminComponent implements OnInit {
       this.showModifyProductDialog = false;
       this.isNew = false;
       this.initProductsList();
-      this.messageService.add({ severity: 'success', detail: $localize`:@@productsDeleted:` });
+      this.messageService.add({ severity: 'success', detail: $localize`:@@productsDeleted:` || 'Products deleted' });
     });
     this.showDeleteSelectedDialog = false;
     this.adminService.toggleDeleteButton(false);

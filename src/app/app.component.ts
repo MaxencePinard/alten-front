@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
     private readonly router: Router,
     private readonly sidenavService: SidenavService
   ) {
-    environment.lang = $localize.locale.split('-')[0];
+    environment.lang = $localize.locale ? $localize.locale.split('-')[0] : 'en';
   }
 
   get getExpanded(): boolean {
